@@ -105,60 +105,63 @@ function Player() {
   }
 
   return (
-    <div className="player_response">
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="red"
-        value="0"
-        color="red"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="orange"
-        value="1"
-        color="orange"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="yellow"
-        value="2"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="green"
-        value="3"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="blue"
-        value="4"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="purple"
-        value="5"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="pink"
-        value="6"
-      ></button>
-      <button
-        id="player-choice"
-        onClick={addChoices}
-        className="white"
-        value="7"
-      ></button>
-      <div>{currentArray}</div>
-      <button onClick={deleteChoice}>delete</button>
-      <button onClick={appendChoice}>append</button>
+    <div className="playerResponseContainer">
+      <div>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="red"
+          value="0"
+          color="red"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="orange"
+          value="1"
+          color="orange"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="yellow"
+          value="2"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="green"
+          value="3"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="blue"
+          value="4"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="purple"
+          value="5"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="pink"
+          value="6"
+        ></button>
+        <button
+          id="player-choice"
+          onClick={addChoices}
+          className="white"
+          value="7"
+        ></button>
+        <div>
+          <button onClick={deleteChoice}>delete</button>
+          <button onClick={appendChoice}>append</button>
+        </div>
+      </div>
     </div>
   );
 }

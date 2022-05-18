@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import CompChoice from "./CompChoice";
 import Log from "./Log";
-import Player from "./Player";
+
 import ResolveRound from "./ResolveRound";
 
 import { useRecoilState, useSetRecoilState } from "recoil";
@@ -39,7 +39,6 @@ function ScreenController() {
         <Log />
         <ResolveRound />
       </div>
-      <Player />
     </div>
   );
 }
