@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mastermindtsa/static/css/main.f4e1b1cd.css",
+    "main.css": "/mastermindtsa/static/css/main.c37a829c.css",
     "main.js": "/mastermindtsa/static/js/main.68b0896c.js",
     "index.html": "/mastermindtsa/index.html",
-    "main.f4e1b1cd.css.map": "/mastermindtsa/static/css/main.f4e1b1cd.css.map",
+    "main.c37a829c.css.map": "/mastermindtsa/static/css/main.c37a829c.css.map",
     "main.68b0896c.js.map": "/mastermindtsa/static/js/main.68b0896c.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4e1b1cd.css",
+    "static/css/main.c37a829c.css",
     "static/js/main.68b0896c.js"
   ]
 }
