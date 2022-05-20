@@ -4,7 +4,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 
-background-color: rgb(14, 10, 10);
+background-color: rgb(41, 23, 23);
 background-image: radial-gradient(at 97% 91%, rgb(51, 65, 85) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(217, 249, 157) 0, transparent 58%), radial-gradient(at 28% 96%, rgb(69, 70, 75) 0, transparent 43%), radial-gradient(at 58% 93%, rgb(15, 118, 110) 0, transparent 71%), radial-gradient(at 39% 5%, rgb(82, 82, 91) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(226, 232, 240) 0, transparent 72%);
 
 
@@ -31,7 +31,6 @@ clip-path: polygon(8% 0%,92% 0%,100% 8%,100% 92%,92% 100%,8% 100%,0% 92%,0% 8%);
 }
 
 .gameBoard-inside {
-
   position: absolute;
   top: 10px;
   left: 12px;

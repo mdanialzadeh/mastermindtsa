@@ -42,7 +42,7 @@ function GameOverScreen() {
                 <p>Congrats on Winning!</p>
               </div>
             ),
-            Loose: <div> Sorry you lost please try again</div>,
+            Lose: <div> Sorry you lost please try again</div>,
           }[gameresult]
         }
 
