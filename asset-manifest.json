@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mastermindtsa/static/css/main.f4e1b1cd.css",
+    "main.js": "/mastermindtsa/static/js/main.68b0896c.js",
+    "index.html": "/mastermindtsa/index.html",
+    "main.f4e1b1cd.css.map": "/mastermindtsa/static/css/main.f4e1b1cd.css.map",
+    "main.68b0896c.js.map": "/mastermindtsa/static/js/main.68b0896c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4e1b1cd.css",
+    "static/js/main.68b0896c.js"
+  ]
+}
