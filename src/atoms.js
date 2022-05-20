@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 
-export const activeScreen = atom({
-  key: "activeScreen",
-  default: "gameStart",
+export const gameState = atom({
+  key: "gameState",
+  default: "gameIntro",
 });
 
 export const secret = atom({
@@ -85,4 +85,9 @@ export const ResultLog = atom({
       Missed: [],
     },
   },
+});
+
+export const gameResults = atom({
+  key: "gameresult",
+  default: "",
 });

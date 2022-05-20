@@ -1,12 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { React, useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { Round, RoundLog, secret, ResultLog } from "./atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  Round,
+  RoundLog,
+  secret,
+  ResultLog,
+  gameState,
+  gameResults,
+} from "./atoms";
 
 function Player() {
   const [currentRound, setCurrentRound] = useRecoilState(Round);
   const [currentRoundLog, setCurrentRoundLog] = useRecoilState(RoundLog);
   const [currentResultLog, setCurrentResultLog] = useRecoilState(ResultLog);
+  const [currentGameResult, setCurrentGameResult] = useRecoilState(gameResults);
+  const setgameState = useSetRecoilState(gameState);
   const [matchedArr, setMatchedArr] = useState([]);
   const [correctArr, setCorrectArr] = useState([]);
 
@@ -42,13 +51,18 @@ function Player() {
         ...currentRoundLog,
         [`${currentRound}`]: currentArray,
       });
+      resolveCurrentRound();
+    } else {
+      alert("need 4 pegs");
     }
-    resolveCurrentRound();
   }
 
   function resolveCurrentRound() {
     if (currentArray.every((value, index) => value === currentSecret[index])) {
-      console.log("win");
+      setCurrentGameResult("Win");
+    } else if (currentRound >= 10) {
+      findCorrect();
+      setCurrentGameResult("Lose");
     } else {
       findCorrect();
     }
@@ -80,9 +94,6 @@ function Player() {
 
   useEffect(() => {
     if (currentRoundLog[`${currentRound}`].length === 4) {
-      console.log(matchedArr.length + "right color wrong position");
-      console.log(correctArr.length + "right color and position");
-
       setCurrentResultLog({
         ...currentResultLog,
         [`${currentRound}`]: {
@@ -93,73 +104,81 @@ function Player() {
           ),
         },
       });
+
       resetchoices();
     }
   }, [matchedArr]);
 
   function resetchoices() {
-    setCurrentArray([]);
-    setCorrectArr([]);
-    setMatchedArr([]);
-    setCurrentRound(currentRound + 1);
+    if (currentRound < 10) {
+      setCurrentArray([]);
+      setCorrectArr([]);
+      setMatchedArr([]);
+      setCurrentRound(currentRound + 1);
+    }
   }
 
   return (
     <div className="playerResponseContainer">
-      <div>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="red"
-          value="0"
-          color="red"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="orange"
-          value="1"
-          color="orange"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="yellow"
-          value="2"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="green"
-          value="3"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="blue"
-          value="4"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="purple"
-          value="5"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="pink"
-          value="6"
-        ></button>
-        <button
-          id="player-choice"
-          onClick={addChoices}
-          className="white"
-          value="7"
-        ></button>
-        <div>
-          <button onClick={deleteChoice}>delete</button>
-          <button onClick={appendChoice}>append</button>
+      <div className="playerResponse">
+        <div className="gameButtons">
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="red"
+            value="0"
+            color="red"
+          ></button>
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="orange"
+            value="1"
+            color="orange"
+          ></button>
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="yellow"
+            value="2"
+          ></button>
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="green"
+            value="3"
+          ></button>
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="blue"
+            value="4"
+          ></button>
+
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="purple"
+            value="5"
+          ></button>
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="pink"
+            value="6"
+          ></button>
+          <button
+            id="player-choice"
+            onClick={addChoices}
+            className="white"
+            value="7"
+          ></button>
+          <button className="interfacebutton" onClick={deleteChoice}>
+            Delete
+          </button>
+          <button className="interfacebutton" onClick={appendChoice}>
+            Submit
+          </button>
         </div>
       </div>
     </div>

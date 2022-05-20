@@ -1,45 +1,78 @@
 import { React, useEffect, useState } from "react";
-import CompChoice from "./CompChoice";
-import Log from "./Log";
+import GameBoard from "./GameBoard";
+import IntroScreen from "./IntroScreen";
 
-import ResolveRound from "./ResolveRound";
-
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { secret } from "./atoms";
+import {
+  useRecoilState,
+  useSetRecoilState,
+  useResetRecoilState,
+  useRecoilValue,
+} from "recoil";
+import {
+  secret,
+  gameState,
+  RoundLog,
+  ResultLog,
+  Round,
+  gameResults,
+} from "./atoms";
+import GameOverScreen from "./GameOverScreen";
 
 function ScreenController() {
   const setCurrentSecret = useSetRecoilState(secret);
-  const length = 4;
-  const [currentGameState, setgamestate] = useState("");
+  const resetRoundLog = useResetRecoilState(RoundLog);
+  const resetResultLog = useResetRecoilState(ResultLog);
+  const resetRound = useResetRecoilState(Round);
+  const [currentGameState, setGameState] = useRecoilState(gameState);
+  const currentGameResult = useRecoilValue(gameResults);
 
   useEffect(() => {
-    setgamestate("newgame");
-  }, [length]);
+    console.log(currentGameState);
+  }, [currentGameState]);
 
-  if (currentGameState === "newgame") {
-    setgamestate("active");
+  if (currentGameState === "newGame") {
     fetch(
-      `https://www.random.org/integers/?num=${length}&min=0&max=7&col=1&base=10&format=plain&rnd=new`
+      `https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new`
     )
       .then(function (response) {
         return response.text();
       })
       .then(function (text) {
-        setCurrentSecret(text.split("\n", length));
+        setCurrentSecret(text.split("\n", 4));
+
+        resetRoundLog();
+        resetResultLog();
+        resetRound();
       })
+      .then(function () {
+        setGameState("active");
+      })
+
       .catch(function () {
         console.log("error");
       });
   }
 
   return (
-    <div className="gameContainer">
-      <CompChoice />
-      <div className="log-container">
-        <Log />
-        <ResolveRound />
-      </div>
-    </div>
+    <>
+      {
+        {
+          gameIntro: <IntroScreen />,
+          active: (
+            <>
+              {currentGameResult === "Win" || currentGameResult === "Lose" ? (
+                <>
+                  <GameOverScreen />,
+                </>
+              ) : (
+                <div></div>
+              )}
+              <GameBoard />,
+            </>
+          ),
+        }[currentGameState]
+      }
+    </>
   );
 }
 
