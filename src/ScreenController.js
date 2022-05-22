@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import GameBoard from "./GameBoard";
 import IntroScreen from "./IntroScreen";
 
@@ -49,7 +49,9 @@ function ScreenController() {
       })
 
       .catch(function () {
-        console.log("error");
+        alert(
+          "Error unable to access random number API please refresh and try again"
+        );
       });
   }
 

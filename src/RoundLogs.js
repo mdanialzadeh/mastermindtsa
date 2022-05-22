@@ -1,6 +1,5 @@
 import { React } from "react";
-import { useRecoilValue } from "recoil";
-import { RoundLog } from "./atoms";
+
 import Logs from "./Components/Logs";
 
 function Log() {

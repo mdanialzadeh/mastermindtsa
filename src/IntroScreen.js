@@ -1,12 +1,7 @@
 import React from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { gameState } from "./atoms";
-import {
-  CorrectPeg,
-  MissedPeg,
-  MatchedPeg,
-  EmptyPeg,
-} from "./Components/ResultPegs";
+import { CorrectPeg, MissedPeg, MatchedPeg } from "./Components/ResultPegs";
 
 function IntroScreen() {
   const setGameState = useSetRecoilState(gameState);

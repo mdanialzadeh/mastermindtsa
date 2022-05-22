@@ -1,13 +1,7 @@
 import { React, useEffect, useState } from "react";
-import { useSpring, animated } from "react-spring";
 
-function Peg({ value }) {
+function SecretPeg({ value }) {
   const [color, setcolor] = useState("");
-
-  const styles = useSpring({
-    from: { transform: "translateY(-8px) translateX(2px)" },
-    to: { transform: "translateY(0px) translateX(0px)" },
-  });
 
   function assignColor(value) {
     const result = {
@@ -26,9 +20,9 @@ function Peg({ value }) {
 
   useEffect(() => {
     assignColor(value);
-  }, [value]);
+  });
 
-  return <animated.div style={styles} className={color}></animated.div>;
+  return <div className={color}></div>;
 }
 
-export default Peg;
+export default SecretPeg;

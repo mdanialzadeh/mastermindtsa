@@ -16,7 +16,7 @@ background-image: radial-gradient(at 97% 91%, rgb(51, 65, 85) 0, transparent 98%
   width: clamp(300px, 95%, 800px);
   height: clamp(500px, 90vh, 900px);
   background: transparent;
-  filter: drop-shadow(-40px 60px 30px rgba(0, 0, 0, 0.5))
+  filter: drop-shadow(-40px 60px 40px rgba(0, 0, 0, 0.8))
 }
 
 .gameBoard-outside {
@@ -78,51 +78,90 @@ filter: drop-shadow(0px 0px 5px rgba(20, 15, 15, 0.979));
 }
 
 .secret-answers { 
-  width: 60%;
+  width: 68%;
   height: 80%;
+  border-radius: 0% 0% 20% 20%;
   margin: auto;
   align-items: center;
   display: flex;
   justify-content: space-around; 
+  background: black;
 }
 
 .secret-cover {
   background-color: rgb(0, 0, 0);
   background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(126, 129, 120) 0, transparent 58%), radial-gradient(at 28% 96%, rgb(58, 65, 90) 0, transparent 43%), radial-gradient(at 58% 93%, rgb(90, 107, 106) 0, transparent 71%), radial-gradient(at 39% 5%, rgb(89, 89, 112) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(101, 112, 128) 0, transparent 72%);
   position:absolute;
-  border: 2px solid black;
-  width: 70%;
+  border: 3px groove black;
+  width: 60%;
+  border-radius: 0% 0% 10% 10%;
   height: 100%;
   box-shadow: 0px -8px 14px 4px rgb(87, 85, 85);
-  top: 0;
-  left: 15%;
-  transform: rotateX(0deg) skew(6deg);
+  top: 0%;
+  left: 20%;
+  transform: rotateX(0deg) skew(0deg);
 }
 
 .secret-cover:before {
   content: "";
   position: absolute;
-  background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(73, 75, 70) 0, transparent 58%), radial-gradient(at 28% 96%, rgb(50, 51, 56) 0, transparent 43%), radial-gradient(at 58% 93%, rgb(47, 53, 52) 0, transparent 71%), radial-gradient(at 39% 5%, rgb(31, 31, 34) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(68, 76, 88) 0, transparent 72%);
+  background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 98%, rgb(73, 75, 70) 0, transparent 98%), radial-gradient(at 28% 96%, rgb(50, 51, 56) 0, transparent 100%), radial-gradient(at 58% 93%, rgb(47, 53, 52) 0, transparent 99%), radial-gradient(at 39% 5%, rgb(31, 31, 34) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(68, 76, 88) 0, transparent 92%);
   border: 3px groove black;
-  transform:  skew(-14deg);
-  height: 105%;
+  height: 100%;
   width: 10%;
-  top: -2%;
-  left: -6%;
+  top: -4%;
+  left: -10.5%;
   border-radius: 0% 0% 0% 100%;
 }
 
 .secret-cover::after {
   content: "";
   position: absolute;
+  background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(73, 75, 70) 0, transparent 98%), radial-gradient(at 28% 96%, rgb(50, 51, 56) 0, transparent 98%), radial-gradient(at 58% 93%, rgb(47, 53, 52) 0, transparent 99%), radial-gradient(at 39% 5%, rgb(31, 31, 34) 0, transparent 96%), radial-gradient(at 69% 27%, rgb(68, 76, 88) 0, transparent 99%);
+  border: 3px groove black;
+  height: 100%;
+  width: 10%;
+  top: -4%;
+  right: -10.5%;
+  border-radius: 0% 0% 100% 0%;
+}
+
+.secret-reveal {
+  background-color: rgb(0, 0, 0);
+  background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(126, 129, 120) 0, transparent 58%), radial-gradient(at 28% 96%, rgb(58, 65, 90) 0, transparent 43%), radial-gradient(at 58% 93%, rgb(90, 107, 106) 0, transparent 71%), radial-gradient(at 39% 5%, rgb(89, 89, 112) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(101, 112, 128) 0, transparent 72%);
+  position:absolute;
+  border: 3px groove black;
+  width: 60%;
+  border-radius: 0% 0% 20% 20%;
+  height: 40%;
+  box-shadow: 0px -8px 14px 4px rgb(87, 85, 85);
+  top: -30%;
+  left: 20%;
+  transform: rotateX(0deg) skew(0deg);
+}
+
+.secret-reveal:before {
+  content: "";
+  position: absolute;
+  background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(73, 75, 70) 0, transparent 58%), radial-gradient(at 28% 96%, rgb(50, 51, 56) 0, transparent 43%), radial-gradient(at 58% 93%, rgb(47, 53, 52) 0, transparent 71%), radial-gradient(at 39% 5%, rgb(31, 31, 34) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(68, 76, 88) 0, transparent 72%);
+  border: 3px groove black;
+  height: 300%;
+  width: 10%;
+  top: -10%;
+  left: -10%;
+  border-radius: 100% 0% 100% 0%;
+}
+
+.secret-reveal::after {
+  content: "";
+  position: absolute;
   background-image: radial-gradient(at 97% 91%, rgb(24, 27, 31) 0, transparent 98%), radial-gradient(at 90% 78%, rgb(73, 75, 70) 0, transparent 88%), radial-gradient(at 28% 96%, rgb(50, 51, 56) 0, transparent 43%), radial-gradient(at 58% 93%, rgb(47, 53, 52) 0, transparent 81%), radial-gradient(at 39% 5%, rgb(31, 31, 34) 0, transparent 86%), radial-gradient(at 69% 27%, rgb(68, 76, 88) 0, transparent 72%);
   border: 3px groove black;
-  transform:  skew(12deg);
-  height: 105%;
+  height: 300%;
   width: 10%;
-  top: -2%;
-  right: -7%;
-  border-radius: 10% 0% 100% 2%;
+  top: -10%;
+  right: -10%;
+  border-radius: 0% 100% 0% 100%;
 }
 
 .log-wrapper {

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { React, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useSpring, animated } from "react-spring";
 import {
   Round,
   RoundLog,
@@ -21,6 +22,11 @@ function Player() {
 
   const currentSecret = useRecoilValue(secret);
   const [currentArray, setCurrentArray] = useState([]);
+
+  const props = useSpring({
+    to: { left: 0, width: "100%" },
+    from: { left: 0, width: "40%" },
+  });
 
   function addChoices(e) {
     e.preventDefault();
@@ -119,7 +125,7 @@ function Player() {
   }
 
   return (
-    <div className="playerResponseContainer">
+    <animated.div style={props} className="playerResponseContainer">
       <div className="playerResponse">
         <div className="gameButtons">
           <button
@@ -181,7 +187,7 @@ function Player() {
           </button>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 }
 

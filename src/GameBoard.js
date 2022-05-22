@@ -4,8 +4,8 @@ import RoundLogs from "./RoundLogs";
 import GamePlay from "./GamePlay";
 import ResultLogs from "./ResultLogs";
 
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { Round, RoundLog, secret, ResultLog, gameState } from "./atoms";
+import { useRecoilValue } from "recoil";
+import { Round } from "./atoms";
 
 function GameBoard() {
   const currentround = useRecoilValue(Round);
@@ -33,7 +33,8 @@ function GameBoard() {
                     bottom: "0",
                     color: "black",
                     textAlign: "center",
-                    paddingTop: "2%",
+                    paddingTop: "3%",
+                    fontSize: "1.1rem",
                   }}
                 >
                   Round: {currentround}
