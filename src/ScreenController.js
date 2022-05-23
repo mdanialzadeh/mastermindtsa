@@ -60,6 +60,7 @@ function ScreenController() {
       {
         {
           gameIntro: <IntroScreen />,
+
           active: (
             <>
               {currentGameResult === "Win" || currentGameResult === "Lose" ? (
